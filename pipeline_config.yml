@@ -1,0 +1,47 @@
+#Project Setup
+general:
+  productiveBranch: 'master'
+  unsafeMode: true
+
+#Steps Specific Configuration
+steps:
+  mavenExecute:
+#    dockerImage: 'maven:3.5.0-jdk-8'
+    projectSettingsFile : ''
+
+  deployToCfWithCli:
+#    dockerImage: 's4sdk/docker-cf-cli'
+    smokeTestStatusCode: '200'
+  mtaBuild:
+    mtaJarLocation: '/opt/sap/mta/lib/mta.jar'
+    dockerImage: 'ppiper/mta-archive-builder'
+
+#Stage Specific Configurations
+stages:
+  staticCodeChecks:
+    findbugsExcludesFile: 'spotbugs-exclude.xml'
+    pmdExcludes:
+      - '**/com/sap/cloud/s4hana/examples/addressmgr/machinelearning/**'
+      - '**/com/sap/cloud/s4hana/examples/addressmgr/blockchain/**'
+  integrationTests:
+    credentials:
+      - alias: 'S4HANA'
+        credentialId: 'S4HANA'
+
+#  s4SdkQualityChecks:
+#    jacocoExcludes:
+#      - ''
+#    nonErpDestinations:
+#      - ''
+
+  s4SdkQualityChecks:
+    jacocoExcludes:
+      - '**/com/sap/cloud/s4hana/examples/addressmgr/**'
+
+  productionDeployment:
+    cfTargets:
+      - org: 'P2001166740trial_P2001166740trial'
+        space: 'dev'
+        apiEndpoint: 'https://api.cf.us30.hana.ondemand.com'
+        credentialsId: 'cf-deploy'
+        

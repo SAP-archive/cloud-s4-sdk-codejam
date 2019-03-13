@@ -1,0 +1,28 @@
+ID: cloud-s4-sdk-book
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+ - name: srv
+   type: java
+   path: srv
+   parameters:
+      memory: 1024M
+   provides:
+    - name: srv_api
+      properties:
+         url: ${default-url}
+   build-parameters:
+      builder: maven
+      maven-opts:
+         command: [ clean, install ]
+      build-result: application/target/*.war
+   requires:
+    - name: my-destination
+    - name: my-xsuaa
+
+resources:
+ - name: my-destination
+   type: org.cloudfoundry.existing-service
+   description: Destination Service
+ - name: my-xsuaa
+   type: com.sap.xs.uaa

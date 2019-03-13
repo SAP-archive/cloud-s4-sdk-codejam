@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+<Match>
+  <Package name="~com\.sap\.cloud\.s4hana\.examples\.addressmgr\.machinelearning" />
+</Match>
+<Match>
+	<Bug pattern="NP_ALWAYS_NULL"/>
+</Match>
+</FindBugsFilter>
