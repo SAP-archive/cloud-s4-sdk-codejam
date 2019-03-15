@@ -1,5 +1,5 @@
 ID: cloud-s4-sdk-book
-_schema-version: '2.1'
+_schema-version: '2.0'
 version: 0.0.1
 modules:
  - name: srv
