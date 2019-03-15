@@ -6,4 +6,4 @@ erp:
 #      uri: "https://myXXXXXX.s4hana.ondemand.com"
 #      proxy: "http://proxy:8080"
     - alias: "S4HANA"
-      uri: "https://odata-mock-server-shiny-kudu.cfapps.us30.hana.ondemand.com/"
+      uri: "https://odata-mock-server-daring-emu.cfapps.eu10.hana.ondemand.com/"
