@@ -48,25 +48,32 @@ public class TranslateServlet extends HttpServlet
 
             String requestJson = createRequestJson(sourceLang, targetLang, source);
 
-            // TODO: Prepare HttpPost query to translate "input"
-            // TODO 1. Get the Destination object from the SCP destination configuration using the S/4HANA Cloud SDK
+            // Prepare HttpPost query to translate "input"
+            // TODO 1. Get the Destination object from the SCP destination configuration using the S/4HANA Cloud SDK. 
+            // Hint: you might use the class DestinationAccessor of the S/4HANA Cloud SDK to get any destination configured in SCP by its name.
+            
             // final Destination mlDestination = DestinationAccessor.getDestination("sap_api_business_hub_ml");
 
             // TODO 2. Using the Destination object construct the API endpoint for API sandbox by combining info from destination and TRANSLATION_PATH. Create HttpPost request using the created URL.
+            // Hint: you can get the URL configured in the destination using the destination object create in TODO 1 and its method getUri().
+            
             //HttpPost postRequest = new HttpPost(mlDestination.getUri().resolve(TRANSLATION_PATH));
 
             // TODO 3. Set additional postRequest headers: "Content-Type", "application/json" and "Accept", "application/json;charset=UTF-8"
+            
             //postRequest.setHeader("Content-Type", "application/json");
             //postRequest.setHeader("Accept", "application/json;charset=UTF-8");
 
-            // TODO 4. Using the Destination object retrieve APIKey and add it to the postReqwuest header
+            // TODO 4. Using the Destination object retrieve APIKey and add it to the postReqwuest header.
+            // Hint: use the method getPropertiesByName() on the Desrtination object created in TODO 1 to retrieve corresponding API key.
+            
             //final String apiKey = mlDestination.getPropertiesByName().get("API_KEY");
             //if (Strings.isNullOrEmpty(apiKey)) {
             //    throw new IllegalStateException("Missing API_KEY destination property");
             //}
             //postRequest.setHeader("APIKey", apiKey);
 
-            // TODO: Add body, execute the request and parse the response
+            // TODO 5. Add body, execute the request and parse the response
             /*
             // Add http body
             HttpEntity body = new StringEntity(requestJson, ContentType.APPLICATION_JSON);
