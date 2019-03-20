@@ -9,6 +9,7 @@ s4hana_pipeline/
 node_modules/
 .DS_Store
 **/credentials.*
+**/.che/**
 **/node_modules
 **/package-lock.json
 
