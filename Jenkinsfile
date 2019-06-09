@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy 
 
-String pipelineVersion = "v17"
+String pipelineVersion = "google-next"
 
 node {
     deleteDir()
